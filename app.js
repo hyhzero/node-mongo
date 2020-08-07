@@ -1,20 +1,20 @@
 const User = require('./model/user.js')
 
 // 查询
-User.find({}, (error, doc) => {
-    if(error){
-        console.log(error)
-        return
-    }
-    console.log(doc)
-})
-
-
-// 增加
-// const u = new User({
-//     username: "yhhan",
-//     password: "yhhan"
+// User.find({}, (error, doc) => {
+//     if(error){
+//         console.log(error)
+//         return
+//     }
+//     console.log(doc)
 // })
+
+
+//增加
+const u = new User({
+    username: "jupyter",
+    password: "66666"
+})
 
 // u.save((error) => {
 //     if (error){
@@ -23,6 +23,10 @@ User.find({}, (error, doc) => {
 //     }
 //     console.log("成功")
 // })
+
+u.save()
+.then(doc => console.log(doc))
+.catch(error => console.log(error))
 
 
 // // 更新
