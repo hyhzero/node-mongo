@@ -11,6 +11,7 @@ const PoemSchema = mongoose.Schema({
     title: String
 })
 
+
 // 定义model
 const Poem = mongoose.model('Poem', PoemSchema, 'poems')
 
