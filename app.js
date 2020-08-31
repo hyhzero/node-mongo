@@ -1,4 +1,5 @@
-const paperService = require('./service/paper.js')
+const paperService = require('./service/paper.js');
+const templateService = require('./service/template');
 
 //增加单个文档
 // paper = {
@@ -15,6 +16,7 @@ const paperService = require('./service/paper.js')
 // paperService.addPaper(paper)
 // .then(doc => console.log(doc)) // 成功则返回当前插入的记录，JSON格式
 // .catch(error => console.log(error))
+
 
 
 //查找文档
@@ -48,12 +50,41 @@ const paperService = require('./service/paper.js')
 
 
 // 关键词查询文档
-paperService.searchByKeyword("淄博", {'category': '作业指导书'})
-.then(doc => console.log(doc))
-.catch(error => console.log(error.message))
+// paperService.searchByKeyword("淄博", {'category': '作业指导书'})
+// .then(doc => console.log(doc))
+// .catch(error => console.log(error.message))
 
 
 // 创建索引
 // paperService.createMyIndex()
 // .then(doc => console.log(doc))
 // .catch(error => console.log(error.message))
+
+
+
+/*
+=====================================
+模板管理
+=====================================
+*/
+
+
+// 增加多个模板记录
+// templateService.addTemplates([{"activity": "软件概要设计说明", "role": "研制人员", "template": "软件概要设计说明", "url": "/public/template/软件概要设计说明.doc"}, {"activity": "软件概要设计说明", "role": "测试人员", "template": "编写系统概要测试计划", "url": "/public/template/编写系统概要测试计划.doc"}, {"activity": "软件概要设计说明", "role": "质量保证人员", "template": "软件概要设计活动检查", "url": "/public/template/软件概要设计活动检查.doc"}, {"activity": "软件概要设计说明", "role": "质量保证人员", "template": "软件概要设计说明检查", "url": "/public/template/软件概要设计说明检查.doc"}, {"activity": "软件概要设计说明", "role": "质量保证人员", "template": "软件概要设计评审", "url": "/public/template/软件概要设计评审.doc"}, {"activity": "软件概要设计说明", "role": "配置管理人员", "template": "软件概要设计物理审核", "url": "/public/template/软件概要设计物理审核.doc"}, {"activity": "软件详细设计说明", "role": "研制人员", "template": "软件详细设计说明", "url": "/public/template/软件详细设计说明.doc"}, {"activity": "软件详细设计说明", "role": "测试人员", "template": "编写系统详细测试计划", "url": "/public/template/编写系统详细测试计划.doc"}, {"activity": "软件详细设计说明", "role": "质量保证人员", "template": "软件详细设计活动检查", "url": "/public/template/软件详细设计活动检查.doc"}, {"activity": "软件详细设计说明", "role": "质量保证人员", "template": "软件详细设计说明检查", "url": "/public/template/软件详细设计说明检查.doc"}, {"activity": "软件详细设计说明", "role": "质量保证人员", "template": "软件详细设计评审", "url": "/public/template/软件详细设计评审.doc"}, {"activity": "软件详细设计说明", "role": "配置管理人员", "template": "软件详细设计物理审核", "url": "/public/template/软件详细设计物理审核.doc"}])
+// .then(doc => console.log(doc))
+// .catch(error => console.log(error.message));
+
+// 查找模板记录
+const query = {
+    activity: "软件概要设计说明",
+    role: "研制人员",
+    template: "软件概要设计说明"
+}
+// templateService.searchTemplates(query)
+// .then(doc => console.log(doc))
+// .catch(error => console.log(error.message));
+
+// 统计
+templateService.countSearch({activity: "软件概要设计说明"})
+.then(doc => console.log(doc))
+.catch(error => console.log(error.message))

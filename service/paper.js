@@ -30,6 +30,7 @@ async function addPaper(paper){
     
 }
 
+
 // 查找单个文档
 async function searchPaper(query){
     return await Paper.find(query)
@@ -50,6 +51,7 @@ async function searchByKeyword(keyword, filter){
     const query = Object.assign({'title': {'$regex': keyword}}, filter)
     return await Paper.find(query);
 }
+
 
 
 exports.addPaper = addPaper
