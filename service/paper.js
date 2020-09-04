@@ -46,19 +46,11 @@ async function updatePaper(id, update){
     return await Paper.findByIdAndUpdate(id, update)
 }
 
-// 关键词查询
-async function searchByKeyword(keyword, filter){
-    const query = Object.assign({'title': {'$regex': keyword}}, filter)
-    return await Paper.find(query);
-}
-
-
 
 exports.addPaper = addPaper
 exports.searchPaper = searchPaper
 exports.removePaper = removePaper
 exports.updatePaper = updatePaper
-exports.searchByKeyword = searchByKeyword
 
 
 
